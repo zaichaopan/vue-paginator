@@ -6,7 +6,9 @@ export default {
       type: Object,
       required: true,
       validator (value) {
-        return ['total', 'current_page', 'last_page'].every(props => Object.keys.includes(props))
+        return ['total', 'current_page', 'last_page'].every(prop => {
+          return value === null || Object.keys(value).length === 0 || Object.keys(value).includes(prop)
+        })
       }
     },
     pagesPerSection: {

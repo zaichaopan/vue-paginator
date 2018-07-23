@@ -4,7 +4,10 @@ export default {
   props: {
     meta: {
       type: Object,
-      required: true
+      required: true,
+      validator (value) {
+        return ['total', 'current_page', 'last_page'].every(props => Object.keys.includes(props))
+      }
     },
     pagesPerSection: {
       type: Number,
@@ -25,24 +28,29 @@ export default {
       let pages = this.currentSection !== this.totalSections
         ? this.pagesPerSection
         : this.meta.last_page - this.pagesPerSection * (this.currentSection - 1)
+
       let pagesArr = Array.from(Array(pages), (val, i) => (this.currentSection - 1) * this.pagesPerSection + i + 1)
+
       if (this.currentSection === 1) {
         if (this.pagesPerSection > this.meta.last_page) {
           pagesArr = Array.from(Array(this.meta.last_page), (val, i) => i + 1)
         }
         return pagesArr
       }
+
       if (pagesArr.length < this.pagesPerSection) {
         pagesArr = Array.from(
           Array(this.pagesPerSection),
           (val, i) => pagesArr[pagesArr.length - 1] - this.pagesPerSection + i + 1
         )
       }
+
       return pagesArr
     },
-    sections () {
+    section () {
       let showPrev = this.currentSection > 1
       let showNext = this.currentSection < this.totalSections
+
       return {
         showNext,
         showPrev,
@@ -68,6 +76,7 @@ export default {
       if (page < 1 || page > parseInt(this.meta.last_page, 10)) {
         return
       }
+
       this.$emit('pagination:switched', page)
     }
   },
@@ -75,8 +84,8 @@ export default {
     return this.$scopedSlots.default({
       showPaginator: this.showPaginator,
       pages: this.pages,
-      sections: this.sections,
-      switched: {
+      section: this.section,
+      switcher: {
         toPage: this.toPage,
         next: this.next,
         prev: this.prev

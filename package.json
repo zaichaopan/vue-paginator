@@ -1,5 +1,5 @@
 {
-  "name": "vue-paginator",
+  "name": "@zaichaopan/vue-paginator",
   "version": "0.1.0",
   "keywords": [
     "javascript",
@@ -7,6 +7,10 @@
     "paginator"
   ],
   "main": "./dist/vue-paginator.common.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaichaopan/vue-paginator.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name vue-paginator ./src/index.js",

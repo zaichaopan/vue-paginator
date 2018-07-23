@@ -1,14 +1,22 @@
 # Vue Paginator
 
-With this plugin, you can easily add pagination to your application. **The main difference between this plugin and other pagination plugins is it does not provide any Html template.** Instead, it takes advantage of the render function to provide you with all the data and methods you need when building pagination.
+A flexible pagination plugin built with Vue.
 
-## Installation
+![vue-paginator](https://github.com//zaichaopan/vue-paginator/blob/master/public/demo.png?raw=true "vue paginator")
+
+[Play it on code sandbox](https://jznoq7r2ly.codesandbox.io/)
+
+## Usage
+
+__The main difference__ between this plugin and other pagination plugins is __it does not provide any Html template__.
+
+Instead, it takes advantage of the __render function__ to provide you with all the data and methods you need when building pagination.
+
+### Installation
 
 ```bash
 npm i --save @zaichaopan/vue-paginator
 ```
-
-## Usage
 
 ### Use the plugin
 
@@ -148,3 +156,5 @@ export default {
 }
 </script>
 ```
+
+A complete example can be found in [code sandbox](https://codesandbox.io/s/jznoq7r2ly)

@@ -114,6 +114,12 @@ var es6_array_from = __webpack_require__("HEwt");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
 var es6_number_constructor = __webpack_require__("xfY5");
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.array.includes.js
+var es7_array_includes = __webpack_require__("Z2Ku");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.string.includes.js
+var es6_string_includes = __webpack_require__("L9s1");
+
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
 var web_dom_iterable = __webpack_require__("rGqo");
 
@@ -122,12 +128,6 @@ var es6_array_iterator = __webpack_require__("yt8O");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.keys.js
 var es6_object_keys = __webpack_require__("RW0V");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.array.includes.js
-var es7_array_includes = __webpack_require__("Z2Ku");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.string.includes.js
-var es6_string_includes = __webpack_require__("L9s1");
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/VuePaginator.vue?vue&type=script&lang=js&
 
@@ -144,8 +144,8 @@ var es6_string_includes = __webpack_require__("L9s1");
       type: Object,
       required: true,
       validator: function validator(value) {
-        return ['total', 'current_page', 'last_page'].every(function (props) {
-          return Object.keys.includes(props);
+        return ['total', 'current_page', 'last_page'].every(function (prop) {
+          return value === null || Object.keys(value).length === 0 || Object.keys(value).includes(prop);
         });
       }
     },

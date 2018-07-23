@@ -149,7 +149,7 @@ When user navigates to a different page, the event __pagination:switched__ will 
 export default {
 
     methods: {
-        getUser(page) {
+        getUsers(page) {
             //...
         }
     }
